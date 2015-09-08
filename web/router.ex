@@ -16,7 +16,10 @@ defmodule Dash.Router do
   scope "/", Dash do
     pipe_through :browser # Use the default browser stack
 
+    resources "/#{Application.get_env(:dash, :admin_path)}/posts", PostController
     get "/", PageController, :index
+    get "/:permalink", PageController, :show
+
   end
 
   # Other scopes may use custom stacks.

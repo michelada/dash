@@ -21,6 +21,12 @@ exports.config = {
       // }
     },
     stylesheets: {
+      order: {
+        before: [
+          'web/static/vendor/css/pure-min.css',
+          'web/static/vendor/css/grids-responsive-min.css'
+        ]
+      },
       joinTo: 'css/app.css'
     },
     templates: {

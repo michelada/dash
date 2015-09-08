@@ -33,6 +33,9 @@ defmodule Dash.Mixfile do
      {:phoenix_ecto, "~> 1.1"},
      {:postgrex, ">= 0.0.0"},
      {:phoenix_html, "~> 2.1"},
+     {:earmark, "~>0.1.17"},
+     {:chronos, "~> 1.5.1"},
+     {:linguist, "~>0.1.5"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:cowboy, "~> 1.0"}]
   end

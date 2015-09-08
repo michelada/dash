@@ -1,0 +1,11 @@
+<article class='post-view container'>
+  <h1><%= @post.title %></h1>
+  <span class='author'>By Michelada.io</span>
+  <span class='time'><%= human_date(@post.inserted_at) %></span>
+  <p class='tags'>
+    <%= for tag <- @post.tags do %>
+      <span class='tag'><%= tag %></span>
+    <% end %>
+  </p>
+  <div class='content'><%= markdown_to_html(@post.body) %></div>
+</article>

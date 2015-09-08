@@ -39,3 +39,6 @@ config :dash, Dash.Repo,
   password: "postgres",
   database: "dash_dev",
   pool_size: 10
+
+config :dash,
+  admin_path: System.get_env("ADMIN_PATH") || 'admin'

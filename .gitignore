@@ -25,3 +25,5 @@ erl_crash.dump
 
 *.swp
 *.~un
+.DS_Store
+npm-debug*
