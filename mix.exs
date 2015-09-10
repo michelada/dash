@@ -36,6 +36,7 @@ defmodule Dash.Mixfile do
      {:earmark, "~>0.1.17"},
      {:chronos, "~> 1.5.1"},
      {:linguist, "~>0.1.5"},
+     {:exrm, "~> 0.15.0"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:cowboy, "~> 1.0"}]
   end
