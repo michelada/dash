@@ -339,11 +339,6 @@ footer {
   background-color: black;
   min-height: 5em;
 
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-
   .container {
     margin: 0 auto;
     padding: 3em 0;
@@ -448,10 +443,6 @@ footer {
       }
     }
   }
-}
-
-.footer-post-view {
-  position: relative !important;
 }
 
 #disqus_thread {

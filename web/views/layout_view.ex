@@ -41,15 +41,4 @@ defmodule Dash.LayoutView do
       _ -> ""
     end
   end
-
-  def fix_footer_css_class(conn) do
-    post = conn.assigns[:post]
-    case post do
-      nil -> ""
-      _ -> case post.permalink  do
-        nil -> ""
-        _ -> "footer-post-view"
-      end
-    end
-  end
 end
