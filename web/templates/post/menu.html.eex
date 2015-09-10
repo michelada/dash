@@ -1,0 +1,16 @@
+<header>
+  <nav>
+    <div class='michelada'>
+      <a href="http://michelada.io">
+        <span>
+          <img class='logo' src="/images/michelada-logo.svg" />
+          <img class='text' src="/images/michelada-text.svg" />
+        </span>
+      </a>
+    </div>
+    <ul>
+      <li><%= link("Blog", to: page_path(@conn, :index)) %></li>
+      <li><a href="http://michelada.io#contact" class='lets-talk'>Get in Touch</a></li>
+    </ul>
+  </nav>
+</header>

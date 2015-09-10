@@ -1,0 +1,21 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="<%= page_description(@conn, assigns) %>">
+<meta name="keywords" content="<%= I18n.t!("en", "seo.keywords") %>">
+<meta name="author" content="Michelada.io">
+
+<meta property="og:title" content="<%= page_title(@conn, assigns) %>">
+<meta property="og:type" content="article">
+<meta property="og:image" content="<%= static_url(@conn, "/images/main-logo.png") %>">
+<meta property="og:description" content="<%= page_description(@conn, assigns) %>">
+<meta property="og:url" content="<%= current_page_url(@conn, assigns) %>">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:url" content="<%= current_page_url(@conn, assigns) %>">
+<meta name="twitter:title" content="<%= page_title(@conn, assigns) %>">
+<meta name="twitter:description" content="<%= page_description(@conn, assigns) %>">
+<meta name="twitter:image" content="<%= static_url(@conn, "/images/main-logo.png") %>">
+<meta name="twitter:site" content="@micheladaio">
+
+<title>Michelada.io :: <%= page_title(@conn, assigns) %></title>

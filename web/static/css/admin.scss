@@ -1,0 +1,22 @@
+@import 'variables';
+@import 'mixings';
+@import 'sprites';
+
+.admin {
+  header {
+    background-color: white;
+    border-bottom: 1px solid $gray;
+
+    a {
+      color: $orange;
+    }
+  }
+
+  h2 {
+    margin-top: 160px;
+  }
+
+  footer {
+    position: relative !important;
+  }
+}

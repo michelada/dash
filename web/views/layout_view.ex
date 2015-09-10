@@ -1,6 +1,10 @@
 defmodule Dash.LayoutView do
   use Dash.Web, :view
 
+  def render_meta(assigns) do
+    render_existing(Dash.LayoutView, "meta.html", assigns)
+  end
+
   def page_title(_conn, assigns) do
     case assigns[:post] do
       nil -> I18n.t!("en", "seo.title")
@@ -17,10 +21,35 @@ defmodule Dash.LayoutView do
 
   def current_page_url(conn, assigns) do
     path = case assigns[:post] do
-      nil -> static_url(conn, "/")
+      nil -> "/"
       _ -> "/" <> assigns[:post].permalink
     end
 
     static_url(conn, path)
+  end
+
+  def is_admin?(conn) do
+    case view_module(conn) do
+      Dash.PostView -> true
+      _ -> false
+    end
+  end
+
+  def add_admin_css_class(conn) do
+    case is_admin?(conn) do
+      true -> "admin"
+      _ -> ""
+    end
+  end
+
+  def fix_footer_css_class(conn) do
+    post = conn.assigns[:post]
+    case post do
+      nil -> ""
+      _ -> case post.permalink  do
+        nil -> ""
+        _ -> "footer-post-view"
+      end
+    end
   end
 end

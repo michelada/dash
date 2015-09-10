@@ -1,79 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="<%= page_description(@conn, assigns) %>">
-    <meta name="keywords" content="<%= I18n.t!("en", "seo.keywords") %>">
-    <meta name="author" content="Michelada.io">
+    <%= render_meta(assigns) %>
 
-    <meta property="og:title" content="<%= page_title(@conn, assigns) %>">
-    <meta property="og:type" content="article">
-    <meta property="og:image" content="<%= static_url(@conn, "/images/main-logo.png") %>">
-    <meta property="og:description" content="<%= page_description(@conn, assigns) %>">
-    <meta property="og:url" content="<%= current_page_url(@conn, assigns) %>">
-
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:url" content="<%= current_page_url(@conn, assigns) %>">
-    <meta name="twitter:title" content="<%= page_title(@conn, assigns) %>">
-    <meta name="twitter:description" content="<%= page_description(@conn, assigns) %>">
-    <meta name="twitter:image" content="<%= static_url(@conn, "/images/main-logo.png") %>">
-    <meta name="twitter:site" content="@micheladaio">
-
-    <title>michelada.io :: <%= page_title(@conn, assigns) %></title>
     <link rel='shortcut icon' type='image/x-icon' href="<%= static_url(@conn, "/favicon.ico") %>" />
 
-    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700|Lato' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400' rel='stylesheet' type='text/css'>
 
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+    <%= render_existing view_module(@conn), "styles.html", assigns %>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)
+      },i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-63931978-3', 'auto');
+      ga('send', 'pageview');
+    </script>
+
   </head>
 
-  <body>
-    <header>
-      <nav>
-        <div class='michelada'>
-          <a href="http://michelada.io">
-            <span>
-              <img class='logo' src="/images/michelada-white-logo.svg" />
-              <img class='text' src="/images/michelada-white-text.svg" />
-            </span>
-          </a>
-        </div>
-        <ul>
-          <li><a href="http://michelada.io#services">Services</a></li>
-          <li><%= link("Blog", to: page_path(@conn, :index)) %></li>
-          <li><a href="http://michelada.io#about-us">About Us</a></li>
-          <li><a href="http://michelada.io#contact" class='lets-talk'>Get in Touch</a></li>
-        </ul>
-      </nav>
-    </header>
+  <body class='<%= add_admin_css_class(@conn) %>'>
+    <%= render_existing view_module(@conn), "menu.html", assigns %>
 
     <%= @inner %>
-    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
-  </body>
 
-  <footer>
-    <div class='container'>
-      <div class='pure-g'>
-        <div class='pure-u-1 pure-u-md-1-3 michelada'>
-          <span class='marker fa-map-marker-white'></span>
-          <p><b>Michelada.io</b><br/>
-          (415) 666 2698</br>
-          info@michelada.io</p>
-        </div>
-        <div class='pure-u-1 pure-u-md-1-3 built-with'>
-          <p>Powered by <a href='http://elixir-lang.org/' target='_blank'>Elixir</a> and <a href='http://www.phoenixframework.org/' target='_blank'>Phoenix Framework</a></p>
-          <p>Built with fresh and organic Code</p>
-        </div>
-        <div class='pure-u-1 pure-u-md-1-3 social'>
-          <ul>
-            <li class='twitter fa-twitter-white'><a href='http://twitter.com/micheladaio' target='_blank'>Twitter</a></li>
-            <li class='github fa-github-white'><a href='http://github.com/michelada' target='_blank'>Github</a></li>
-          </ul>
+    <footer class='<%= fix_footer_css_class(@conn) %>'>
+      <div class='container'>
+        <div class='pure-g'>
+          <div class='pure-u-1 pure-u-md-1-3 michelada'>
+            <span class='marker fa-map-marker-white'></span>
+            <p><b>Michelada.io</b><br/>
+            (415) 666 2698</br>
+            info@michelada.io</p>
+          </div>
+          <div class='pure-u-1 pure-u-md-1-3 built-with'>
+            <p>Powered by <a href='http://elixir-lang.org/' target='_blank'>Elixir</a> and <a href='http://www.phoenixframework.org/' target='_blank'>Phoenix Framework</a></p>
+            <p>Built with fresh and organic Code</p>
+          </div>
+          <div class='pure-u-1 pure-u-md-1-3 social'>
+            <ul>
+              <li class='twitter fa-twitter-white'><a href='http://twitter.com/micheladaio' target='_blank'>Twitter</a></li>
+              <li class='github fa-github-white'><a href='http://github.com/michelada' target='_blank'>Github</a></li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-  </footer>
+    </footer>
 
+    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+  </body>
 </html>
