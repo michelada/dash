@@ -4,7 +4,7 @@
       <h2><a href='<%= page_path(@conn, :show, post.permalink) %>'><%= post.title %></a></h2>
       <span class='author'>By Michelada.io</span>
       <span class='time'><%= human_date(post.published_at) %></span>
-      <p><%= post.summary %></p>
+      <p><%= markdown_to_html(post.body) %></p>
     </article>
   <% end %>
 </section>
