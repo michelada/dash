@@ -249,6 +249,8 @@ nav {
 }
 
 .post-view {
+  margin-bottom: 60px;
+
   h1 {
     margin-bottom: 0;
 
@@ -450,4 +452,8 @@ footer {
 
 .footer-post-view {
   position: relative !important;
+}
+
+#disqus_thread {
+  margin-top: 6em;
 }

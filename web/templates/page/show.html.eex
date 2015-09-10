@@ -3,9 +3,23 @@
   <span class='author'>By Michelada.io</span>
   <span class='time'><%= human_date(@post.published_at) %></span>
   <p class='tags'>
-    <%= for tag <- @post.tags do %>
-      <span class='tag'><%= tag %></span>
-    <% end %>
+  <%= for tag <- @post.tags do %>
+    <span class='tag'><%= tag %></span>
+  <% end %>
   </p>
   <div class='content'><%= markdown_to_html(@post.body) %></div>
+
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'micheladaio';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 </article>
