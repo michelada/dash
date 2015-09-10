@@ -3,8 +3,6 @@ defmodule Dash.PageView do
 
   alias Earmark.Options
 
-  require Logger
-
   def markdown_to_html(content) do
     Earmark.to_html(content, %Options{gfm: false}) |> raw
   end

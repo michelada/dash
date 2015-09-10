@@ -18,7 +18,7 @@ defmodule Dash.Mixfile do
   def application do
     [mod: {Dash, []},
      applications: [:phoenix, :phoenix_html, :cowboy, :logger,
-                    :phoenix_ecto, :postgrex, :earmark]]
+                    :phoenix_ecto, :postgrex, :earmark, :chronos]]
   end
 
   # Specifies which paths to compile per environment
