@@ -56,6 +56,15 @@ config :logger, level: :info
 #     config :dash, Dash.Endpoint, server: true
 #
 
+# Configure your database
+config :dash, Dash.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  url: System.get_env("DB_URL"),
+  pool_size: 10
+
+config :dash,
+  admin_path: System.get_env("ADMIN_PATH") || 'admin'
+
 # Finally import the config/prod.secret.exs
 # which should be versioned separately.
 import_config "prod.secret.exs"
