@@ -1,10 +1,14 @@
 defmodule Dash.PageController do
   use Dash.Web, :controller
 
+  import Ecto.Query, only: [from: 2]
+
   alias Dash.Post
 
   def index(conn, _params) do
-    posts = Repo.all(Post)
+    query = from p in Post, where: p.published == true
+    posts = Repo.all(query)
+
     render(conn, "index.html", posts: posts)
   end
 

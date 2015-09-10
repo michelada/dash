@@ -7,7 +7,8 @@ defmodule Dash.Post do
     field :body, :string
     field :permalink, :string
     field :tags, {:array, :string}
-    field :published_at, Ecto.Date
+    field :published, :boolean
+    field :published_at, Ecto.DateTime
     field :tags_text, :string, virtual: true
 
     timestamps
@@ -28,6 +29,19 @@ defmodule Dash.Post do
     model
     |> cast(params, @required_fields, @optional_fields)
     |> inflate_tags
+    |> update_published
+  end
+
+  def update_published(changeset) do
+    case {changeset.model.published, changeset.params["published"]} do
+      {false, true} -> put_published_at(changeset)
+      _ -> changeset
+    end
+  end
+
+  def put_published_at(changeset) do
+    put_change(changeset, :published_at, Ecto.DateTime.local)
+    |> put_change(:published, true)
   end
 
   def inflate_tags(changeset) do
