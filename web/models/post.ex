@@ -7,7 +7,7 @@ defmodule Dash.Post do
     field :body, :string
     field :permalink, :string
     field :tags, {:array, :string}
-    field :published, :boolean
+    field :published, :boolean, default: false
     field :published_at, Ecto.DateTime
     field :tags_text, :string, virtual: true
 
@@ -15,7 +15,7 @@ defmodule Dash.Post do
   end
 
   @required_fields ~w(title)
-  @optional_fields ~w(body permalink tags summary published_at)
+  @optional_fields ~w(body permalink tags summary published published_at)
 
   after_load :flat_tags
 
@@ -40,8 +40,8 @@ defmodule Dash.Post do
   end
 
   def put_published_at(changeset) do
-    put_change(changeset, :published_at, Ecto.DateTime.local)
-    |> put_change(:published, true)
+    change(changeset, 
+      %{published_at: Ecto.DateTime.local, published: true})
   end
 
   def inflate_tags(changeset) do
