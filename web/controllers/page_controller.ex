@@ -7,6 +7,7 @@ defmodule Dash.PageController do
 
   def index(conn, _params) do
     query = from p in Post, where: p.published == true,
+      preload: [:user],
       order_by: [desc: p.published_at]
 
     [first|posts] = Repo.all(query)
@@ -14,7 +15,7 @@ defmodule Dash.PageController do
   end
 
   def show(conn, %{"permalink" => permalink}) do
-    post = Repo.get_by!(Post, permalink: permalink)
+    post = Repo.get_by!(Post, permalink: permalink) |> Repo.preload(:user)
     render(conn, "show.html", post: post)
   end
 end

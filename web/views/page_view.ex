@@ -11,4 +11,12 @@ defmodule Dash.PageView do
     {:ok, date} = Ecto.DateTime.dump(date)
     Chronos.Formatter.strftime(date, "%B %d, %Y")
   end
+
+  def author_name(user) when user == nil do
+    "Michelada.io"
+  end
+
+  def author_name(user) do
+    user.name
+  end
 end

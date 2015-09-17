@@ -11,11 +11,13 @@ defmodule Dash.Post do
     field :published_at, Ecto.DateTime
     field :tags_text, :string, virtual: true
 
+    belongs_to :user, Dash.User
+
     timestamps
   end
 
   @required_fields ~w(title)
-  @optional_fields ~w(body permalink tags summary published published_at)
+  @optional_fields ~w(body permalink tags summary published published_at user_id)
 
   after_load :flat_tags
 
@@ -40,7 +42,7 @@ defmodule Dash.Post do
   end
 
   def put_published_at(changeset) do
-    change(changeset, 
+    change(changeset,
       %{published_at: Ecto.DateTime.local, published: true})
   end
 
