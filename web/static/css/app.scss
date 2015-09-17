@@ -283,7 +283,7 @@ nav {
       line-height: 1.6em;
     }
 
-    em {
+    em, .inline {
       font-family: Inconsolata, monospace, sans-serif;
       font-style: normal;
 
@@ -295,6 +295,16 @@ nav {
     a {
       border-bottom: 1px solid $orange;
       padding-bottom: 2px;
+    }
+
+    th, td {
+      box-sizing: border-box;
+      padding: 5px 10px;
+      border: 1px solid darken($gray, 20%);
+    }
+
+    th {
+      background-color: #F6F6F6;
     }
   }
 

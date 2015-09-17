@@ -6,10 +6,11 @@ defmodule Dash.PageController do
   alias Dash.Post
 
   def index(conn, _params) do
-    query = from p in Post, where: p.published == true
-    posts = Repo.all(query)
+    query = from p in Post, where: p.published == true,
+      order_by: [desc: p.published_at]
 
-    render(conn, "index.html", posts: posts)
+    [first|posts] = Repo.all(query)
+    render(conn, "index.html", first: first, posts: posts)
   end
 
   def show(conn, %{"permalink" => permalink}) do

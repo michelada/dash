@@ -1,10 +1,17 @@
 <section class='posts container'>
+  <article id='<%= "post_#{@first.id}" %>' class='post'>
+    <h2><a href='<%= page_path(@conn, :show, @first.permalink) %>'><%= @first.title %></a></h2>
+    <span class='author'>By Michelada.io</span>
+    <span class='time'><%= human_date(@first.published_at) %></span>
+    <p><%= markdown_to_html(@first.body) %></p>
+  </article>
+
   <%= for post <- @posts do %>
     <article id='<%= "post_#{post.id}" %>' class='post'>
       <h2><a href='<%= page_path(@conn, :show, post.permalink) %>'><%= post.title %></a></h2>
       <span class='author'>By Michelada.io</span>
       <span class='time'><%= human_date(post.published_at) %></span>
-      <p><%= markdown_to_html(post.body) %></p>
+      <p><%= @first.summary %></p>
     </article>
   <% end %>
 </section>
