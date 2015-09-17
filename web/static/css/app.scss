@@ -246,31 +246,15 @@ nav {
       margin-right: 0.5em;
     }
   }
-}
-
-.post-view {
-  margin-bottom: 60px;
-
-  h1 {
-    margin-bottom: 0;
-
-    line-height: 2em;
-    font-size: 3.5em;
-
-    @include mq-mobile {
-      line-height: 1.3em;
-      margin-bottom: 0.5em;
-    }
-  }
-
-  .author, .time {
-    font-size: 1.2em;
-  }
 
   .content {
     font-size: 1.2em;
     margin-top: 2.5em;
     line-height: 1.8em;
+
+    h2, h3 {
+      margin-top: 1.5em;
+    }
 
     pre {
       border: 1px solid darken($gray, 20%);
@@ -307,6 +291,32 @@ nav {
       background-color: #F6F6F6;
     }
   }
+}
+
+.post-view {
+  margin-bottom: 60px;
+
+  h1 {
+    margin-bottom: 0;
+
+    line-height: 2em;
+    font-size: 3.5em;
+
+    @include mq-mobile {
+      line-height: 1.3em;
+      margin-bottom: 0.5em;
+    }
+  }
+
+  .author, .time {
+    font-size: 1.2em;
+  }
+
+  .content {
+    font-size: 1.2em;
+    margin-top: 2.5em;
+    line-height: 1.8em;
+  }
 
   .tags {
     margin-top: 5px;
@@ -335,12 +345,9 @@ nav {
 
       a {
         font-size: 1.5em;
+        text-decoration: none;
+        border-bottom: none;
       }
-    }
-
-    p {
-      line-height: 1.5em;
-      font-size: 1.1em;
     }
   }
 }
