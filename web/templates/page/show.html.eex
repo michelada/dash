@@ -9,6 +9,8 @@
   </p>
   <div class='content'><%= markdown_to_html(@post.body) %></div>
 
+  <%= render_author(@conn, @post.user) %>
+
   <div id="disqus_thread"></div>
   <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */

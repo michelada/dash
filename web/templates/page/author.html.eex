@@ -1,0 +1,26 @@
+<section class='author-info'>
+  <hr />
+  <table>
+    <tr>
+      <td class='picture'>
+        <div class='frame'>
+          <img src="<%= static_url(@conn, "/images/#{@author.nickname}.jpg") %>" />
+        </div>
+      </td>
+      <td>
+        <h3><%= @author.name %></h3>
+        <p><%= @author.bio %></p>
+        <p class='social'>
+          <%= for {service, link} <- @author.social do %>
+            <a href="<%= link %>" target='_blank'>
+              <svg class="<%= service %>">
+                <use xlink:href="<%= static_url(@conn, "/images/sprites.svg##{service}") %>" />
+              </svg>
+            </a>
+          <% end %>
+        </p>
+      </td>
+    </tr>
+  </table>
+  <hr />
+</section>

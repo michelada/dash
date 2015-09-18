@@ -1,6 +1,5 @@
 @import 'variables';
 @import 'mixings';
-@import 'sprites';
 
 html {
   height: 100%;
@@ -62,7 +61,9 @@ nav {
     }
 
     .logo {
+      fill: transparent;
       height: 55px;
+      width: 56px;
       margin-right: 15px;
 
       position: relative;
@@ -71,6 +72,7 @@ nav {
 
     .text {
       height: 15px;
+      width: 185px;
       top: 20px;
 
       position: relative;
@@ -352,6 +354,32 @@ nav {
   }
 }
 
+.social {
+  .twitter, .github {
+    width: 30px;
+    height: 30px;
+    fill: darken($gray, 20%);
+  }
+
+  .twitter {
+    padding-top: 3px;
+  }
+
+  a {
+    width: 30px;
+    height: 30px;
+    display: block;
+    float: left;
+    margin-right: 1em;
+
+    &:hover {
+      svg {
+        fill: $orange;
+      }
+    }
+  }
+}
+
 footer {
   background-color: black;
   min-height: 5em;
@@ -368,7 +396,12 @@ footer {
 
   .marker {
     display: inline-block;
-    margin-bottom: 40px;
+    margin-bottom: 36px;
+    margin-right: 10px;
+
+    width: 20px;
+    height: 30px;
+    fill: white;
   }
 
   p {
@@ -404,15 +437,15 @@ footer {
     }
   }
 
-  ul {
-    margin-top: 2.5em;
-    text-align: right;
-    margin-right: 1em;
-  }
+  .social {
+    padding-top: 2.5em;
+    padding-right: 1em;
+    box-sizing: border-box;
 
-  li {
-    display: inline-block;
-    margin-right: 2em;
+    a {
+      float: right;
+      margin-right: 2em;
+    }
   }
 
   a {
@@ -420,23 +453,6 @@ footer {
 
     &:hover {
       color: transparent;
-    }
-  }
-
-  .twitter {
-    &:hover {
-      background-position-x: -78px;
-      background-position-y: 0px;
-    }
-  }
-
-  .github {
-    padding-top: 2px;
-
-    &:hover {
-      color: transparent;
-      background-position-x: -50px;
-      background-position-y: 0;
     }
   }
 
@@ -454,10 +470,57 @@ footer {
     }
 
     .social {
-      ul {
-        margin-top: 2.5em;
-        text-align: center;
+      a {
+        float: none;
+        display: inline-block;
+
+        &:last-child {
+          margin-right: 0px;
+        }
       }
+    }
+  }
+}
+
+.author-info {
+  hr {
+    width: 40%;
+    margin: 4em auto;
+    border-top: 0;
+    border-bottom: 1px solid $orange;
+  }
+
+  table {
+    box-sizing: border-box;
+    width: 100%;
+
+    .picture {
+      text-align: right;
+      padding-right: 1em;
+    }
+
+    .frame {
+      display: inline-block;
+      border-radius: 50%;
+      overflow: hidden;
+      width: 150px;
+      height: 150px;
+
+      img {
+        width: 150px;
+      }
+    }
+
+    h3 {
+      color: $orange;
+      font-weight: 300;
+      font-size: 1.3em;
+      line-height: 1.8em;
+      margin: 0;
+    }
+
+    p {
+      margin-top: 0;
     }
   }
 }

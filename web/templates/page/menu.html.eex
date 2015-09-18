@@ -3,8 +3,12 @@
     <div class='michelada'>
       <a href="http://michelada.io">
         <span>
-          <img class='logo' src="<%= static_url(@conn, "/images/michelada-white-logo.svg") %>" />
-          <img class='text' src="<%= static_url(@conn, "/images/michelada-white-text.svg") %>" />
+          <svg class='logo'>
+            <use xlink:href="<%= static_url(@conn, "/images/sprites.svg#michelada-white-logo") %>" />
+          </svg>
+          <svg class='text'>
+            <use xlink:href="<%= static_url(@conn, "/images/sprites.svg#michelada-white-text") %>" />
+          </svg>
         </span>
       </a>
     </div>
