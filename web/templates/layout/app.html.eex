@@ -25,6 +25,9 @@
   <body class='<%= add_admin_css_class(@conn) %>'>
     <%= render_existing view_module(@conn), "menu.html", assigns %>
 
+    <h1>
+    <%= @conn.private.phoenix_endpoint.static_url %>
+    </h1>
     <%= @inner %>
 
     <footer>

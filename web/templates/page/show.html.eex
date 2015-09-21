@@ -7,7 +7,15 @@
     <span class='tag'><%= tag %></span>
   <% end %>
   </p>
-  <div class='content'><%= markdown_to_html(@post.body) %></div>
+  <div class='content'>
+    <%= markdown_to_html(@post.body) %>
+    <a class='share' href="https://twitter.com/intent/tweet?url=<%= page_url(@conn, :show, @post.permalink) %>&text=<%= @post.title %>" target="_blank">
+      <svg>
+        <use xlink:href="<%= static_url(@conn, "/images/sprites.svg#twitter-small") %>" />
+      </svg>
+      Tweet
+    </a>
+  </div>
 
   <%= render_author(@conn, @post.user) %>
 

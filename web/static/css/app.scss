@@ -292,6 +292,31 @@ nav {
     th {
       background-color: #F6F6F6;
     }
+
+    .share {
+      margin-top: 18px;
+      padding: 2px 10px 2px;
+      display: inline-block;
+      border: 1px solid $gray;
+      border-radius: 1px;
+
+      svg {
+        fill: $black;
+        margin-right: 2px;
+        position: relative;
+        top: 4px;
+        width: 20px;
+        height: 20px;
+      }
+
+      &:hover {
+        border: 1px solid $orange;
+
+        svg {
+          fill: $orange;
+        }
+      }
+    }
   }
 }
 
@@ -521,6 +546,14 @@ footer {
 
     p {
       margin-top: 0;
+    }
+
+    .social {
+      a {
+        height: 25px;
+        width: 25px;
+        margin-right: 0.5em;
+      }
     }
   }
 }
