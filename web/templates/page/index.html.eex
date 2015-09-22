@@ -11,7 +11,7 @@
       <h2><a href='<%= page_path(@conn, :show, post.permalink) %>'><%= post.title %></a></h2>
       <span class='author'><%= "By #{author_name(post.user)}" %></span>
       <span class='time'><%= human_date(post.published_at) %></span>
-      <p><%= @first.summary %></p>
+      <p><%= post.summary %></p>
     </article>
   <% end %>
 </section>
