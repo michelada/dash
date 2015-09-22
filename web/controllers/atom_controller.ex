@@ -1,4 +1,4 @@
-defmodule Dash.SitemapController do
+defmodule Dash.AtomController do
   use Dash.Web, :controller
 
   import Ecto.Query, only: [from: 2]
@@ -7,6 +7,7 @@ defmodule Dash.SitemapController do
 
   def index(conn, _params) do
     query = from p in Post, where: p.published == true,
+      preload: [:user],
       order_by: [desc: p.published_at]
 
     posts = Repo.all(query)

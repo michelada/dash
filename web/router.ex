@@ -20,6 +20,7 @@ defmodule Dash.Router do
   scope "/", Dash do
     pipe_through :xml
 
+    get "/atom.xml", AtomController, :index
     get "/sitemap.xml", SitemapController, :index
   end
 
