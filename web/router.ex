@@ -13,6 +13,16 @@ defmodule Dash.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :xml do
+    plug :accepts, ["xml"]
+  end
+
+  scope "/", Dash do
+    pipe_through :xml
+
+    get "/sitemap.xml", SitemapController, :index
+  end
+
   scope "/", Dash do
     pipe_through :browser # Use the default browser stack
 
