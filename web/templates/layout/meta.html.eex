@@ -17,5 +17,6 @@
 <meta name="twitter:description" content="<%= page_description(@conn, assigns) %>">
 <meta name="twitter:image" content="<%= static_url(@conn, "/images/main-logo.png") %>">
 <meta name="twitter:site" content="@micheladaio">
+<link rel="alternate" type="application/atom+xml" title="feed" href="<%= atom_url(@conn, :index) %>" />
 
 <title>Michelada.io :: <%= page_title(@conn, assigns) %></title>

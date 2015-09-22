@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Michelada.io Blog</title>
+  <link href="<%= page_url(@conn, :index) %>"/>
+  <updated><%= utc_date(List.last(@posts).published_at) %></updated>
+  <author>
+    <name>Michelada.io</name>
+  </author>
+  <rights>© 2015 Michelada.io</rights>
+  <subtitle><%= I18n.t!("en", "seo.description") %></subtitle>
+  <logo><%= static_url(@conn, "/images/main-logo.png") %></logo>
+
+  <%= for post <- @posts do %>
+    <entry>
+      <title><%= post.title %></title>
+      <link rel="alternate" href="<%= page_url(@conn, :show, post.permalink) %>"/>
+      <updated><%= utc_date(post.updated_at) %></updated>
+      <published><%= utc_date(post.published_at) %></published>
+      <summary><%= post.summary %></summary>
+      <author>
+      <name><%= author_name(post.user) %></name>
+      </author>
+    </entry>
+  <% end %>
+</feed>
