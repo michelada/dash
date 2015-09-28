@@ -23,6 +23,7 @@
   <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = 'micheladaio';
+    var disqus_identifier = '<%= page_url(@conn, :show, @post.permalink) %>';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
