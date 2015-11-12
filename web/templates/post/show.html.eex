@@ -1,28 +1,14 @@
-<h2>Show post</h2>
-
-<ul>
-
-  <li>
-    <strong>Title:</strong>
-    <%= @post.title %>
-  </li>
-
-  <li>
-    <strong>Body:</strong>
-    <%= @post.body %>
-  </li>
-
-  <li>
-    <strong>Permalink:</strong>
-    <%= @post.permalink %>
-  </li>
-
-  <li>
-    <strong>Tags:</strong>
-    <%= @post.tags_text %>
-  </li>
-
-</ul>
-
-<%= link "Edit", to: post_path(@conn, :edit, @post) %>
-<%= link "Back", to: post_path(@conn, :index) %>
+<article class='post-view container'>
+  <h1><%= @post.title %></h1>
+  <span class='author'><%= "By #{author_name(@post.user)}" %></span>
+  <span class='time'><%= human_date(@post.published_at) %></span>
+  <p class='tags'>
+  <%= for tag <- @post.tags do %>
+    <span class='tag'><%= tag %></span>
+  <% end %>
+  </p>
+  <div class='content'>
+    <%= markdown_to_html(@post.body) %>
+    </a>
+  </div>
+</article>

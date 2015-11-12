@@ -1,4 +1,4 @@
-<%= form_for @changeset, @action, fn f -> %>
+<%= form_for @changeset, @action, [class: "pure-form pure-form-stacked"],  fn f -> %>
   <%= if @changeset.action do %>
     <div class="alert alert-danger">
       <p>Oops, something went wrong! Please check the errors below:</p>
@@ -12,30 +12,30 @@
 
   <div class="form-group">
     <%= label f, :title, "Title", class: "control-label" %>
-    <%= text_input f, :title, class: "form-control" %>
+    <%= text_input f, :title, class: "pure-input-1" %>
+  </div>
+
+  <div class="form-group-1-2">
+    <%= label f, :permalink, "Permalink", class: "control-label" %>
+    <%= text_input f, :permalink, class: "pure-input-1" %>
+  </div>
+
+  <div class="form-group-1-2">
+    <%= label f, :tags_text, "Tags", class: "control-label" %>
+    <%= text_input f, :tags_text, class: "pure-input-1" %>
   </div>
 
   <div class="form-group">
     <%= label f, :summary, "Summary", class: "control-label" %>
-    <%= textarea f, :summary, class: "form-control" %>
+    <%= textarea f, :summary, class: "pure-input-1 summary" %>
   </div>
 
   <div class="form-group">
     <%= label f, :body, "Body", class: "control-label" %>
-    <%= textarea f, :body, class: "form-control" %>
+    <%= textarea f, :body, class: "pure-input-1 body" %>
   </div>
 
   <div class="form-group">
-    <%= label f, :permalink, "Permalink", class: "control-label" %>
-    <%= text_input f, :permalink, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= label f, :tags_text, "Tags", class: "control-label" %>
-    <%= textarea f, :tags_text, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= submit "Submit", class: "btn btn-primary" %>
+    <%= submit "Submit", class: "pure-button" %>
   </div>
 <% end %>

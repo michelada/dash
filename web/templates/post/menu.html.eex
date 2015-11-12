@@ -3,14 +3,23 @@
     <div class='michelada'>
       <a href="http://michelada.io">
         <span>
-          <img class='logo' src="/images/michelada-logo.svg" />
-          <img class='text' src="/images/michelada-text.svg" />
+          <svg class='logo'>
+            <use xlink:href="<%= static_url(@conn, "/images/sprites.svg#michelada-orange-logo") %>" />
+          </svg>
+          <svg class='text'>
+            <use xlink:href="<%= static_url(@conn, "/images/sprites.svg#michelada-orange-text") %>" />
+          </svg>
         </span>
       </a>
     </div>
-    <ul>
-      <li><%= link("Blog", to: page_path(@conn, :index)) %></li>
-      <li><a href="http://michelada.io#contact" class='lets-talk'>Get in Touch</a></li>
+    <a href='#' class='menu-toggle'>
+      <s class='bar'></s>
+      <s class='bar'></s>
+    </a>
+    <ul class='home-menu'>
+      <li><%= link "Blog", to: page_path(@conn, :index) %></li>
+      <li><%= link "Admin", to: post_path(@conn, :index) %></li>
+      <li><%= link "New post", to: post_path(@conn, :new), class: "primary-button" %></li>
     </ul>
   </nav>
 </header>

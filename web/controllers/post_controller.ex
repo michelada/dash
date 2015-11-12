@@ -6,7 +6,8 @@ defmodule Dash.PostController do
   plug :scrub_params, "post" when action in [:create, :update]
 
   def index(conn, _params) do
-    posts = Repo.all(Post)
+    query = from p in Post, order_by: [desc: p.updated_at]
+    posts = Repo.all(query)
     render(conn, "index.html", posts: posts)
   end
 
@@ -29,7 +30,7 @@ defmodule Dash.PostController do
   end
 
   def show(conn, %{"id" => id}) do
-    post = Repo.get!(Post, id)
+    post = Repo.get!(Post, id) |> Repo.preload(:user)
     render(conn, "show.html", post: post)
   end
 
