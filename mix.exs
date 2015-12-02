@@ -3,7 +3,7 @@ defmodule Dash.Mixfile do
 
   def project do
     [app: :dash,
-     version: "0.0.4",
+     version: "0.0.5",
      elixir: "~> 1.0",
      elixirc_paths: elixirc_paths(Mix.env),
      compilers: [:phoenix] ++ Mix.compilers,
@@ -17,7 +17,7 @@ defmodule Dash.Mixfile do
   # Type `mix help compile.app` for more information
   def application do
     [mod: {Dash, []},
-     applications: [:phoenix, :phoenix_html, :cowboy, :logger,
+     applications: [:phoenix, :phoenix_html, :cowboy, :logger, :linguist,
                     :phoenix_ecto, :postgrex, :earmark, :chronos]]
   end
 
@@ -36,7 +36,7 @@ defmodule Dash.Mixfile do
      {:earmark, "~>0.1.17"},
      {:chronos, "~> 1.5.1"},
      {:linguist, "~>0.1.5"},
-     {:exrm, "~> 0.15.0"},
+     {:exrm, "~>0.19.0"}, #"~> 1.0.0-rc7", github: "bitwalker/exrm"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:cowboy, "~> 1.0"}]
   end

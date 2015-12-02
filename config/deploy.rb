@@ -4,6 +4,7 @@ lock '3.4.0'
 set :application   , 'michelada.io-blog'
 set :repo_url      , 'git@github.com:Michelada/dash.git'
 ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
+set :default_env   , { mix_env: "prod", HOST: "blog.michelada.io", PUBLIC_PORT: 80, SCHEME: "http", PORT: 4002, ADMIN_PATH: "yXAv41YW5uyUDvd47tPa", DB_URL: "ecto://dash:dash_manager@localhost/dash_prod" }
 set :deploy_to     , '/home/deploy/www/dash-blog'
 set :log_level     , :debug
 set :keep_releases , 2

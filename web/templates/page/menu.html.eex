@@ -1,13 +1,13 @@
 <header>
   <nav>
     <div class='michelada'>
-      <a href="http://michelada.io">
+      <a href="http://blog.michelada.io">
         <span>
           <svg class='logo'>
-            <use xlink:href="<%= static_url(@conn, "/images/sprites.svg#michelada-white-logo") %>" />
+            <use xlink:href="<%= static_url(@conn, "/images/sprites.svg#michelada-logo") %>" />
           </svg>
           <svg class='text'>
-            <use xlink:href="<%= static_url(@conn, "/images/sprites.svg#michelada-white-text") %>" />
+            <use xlink:href="<%= static_url(@conn, "/images/sprites.svg#michelada-text") %>" />
           </svg>
         </span>
       </a>
@@ -17,10 +17,12 @@
       <s class='bar'></s>
     </a>
     <ul class='home-menu'>
-      <li><a href="http://michelada.io#services">Services</a></li>
-      <li><%= link("Blog", to: page_path(@conn, :index)) %></li>
-      <li><a href="http://michelada.io#about-us">About Us</a></li>
-      <li><a href="http://michelada.io#contact" class='lets-talk'>Get in Touch</a></li>
+      <li><a href="http://michelada.io">About Us</a></li>
+      <li>
+          <a href="mailto:info@michelada.io?subject=Hi, I want to talk about my project">
+            <div class="contact">Contact Us</div>
+          </a>
+      </li>
     </ul>
   </nav>
 </header>

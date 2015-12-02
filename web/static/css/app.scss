@@ -1,3 +1,4 @@
+@import 'font';
 @import 'variables';
 @import 'mixings';
 
@@ -23,13 +24,13 @@ h1, h2, h3, h4 {
 }
 
 a {
-  color: black;
+  color: $red;
   text-decoration: none;
 
   @include transition-prop(color);
 
   &:hover {
-    color: $orange;
+    color: $yellow;
   }
 }
 
@@ -38,7 +39,7 @@ header {
   top: 0;
 
   border-bottom: 1px solid white;
-  background-color: $orange;
+  background-color: $blue;
 
   height: 90px;
   width: 100%;
@@ -50,6 +51,22 @@ nav {
   width: 90%;
   max-width: 1120px;
   margin: 0 auto;
+
+  .contact {
+    background-color: $yellow;
+    border-radius: 100px;
+    padding: 15px 50px 10px 25px;
+    background-image: url(/images/ic-mail.svg);
+    background-repeat: no-repeat;
+    background-position: 88%;
+    background-size: 20px;
+    width: 7em;
+    color: $blue;
+
+    &:hover {
+      background-color: lighten($yellow, 10%);
+    }
+  }
 
   .menu-toggle {
     display: none;
@@ -86,7 +103,7 @@ nav {
   ul {
     display: inline-block;
     float: right;
-    padding-top: 18px;
+    padding-top: 5px;
     padding-left: 1em;
 
     list-style-type: none;
@@ -97,11 +114,15 @@ nav {
       float: left;
 
       margin-left: 2em;
-      text-transform: uppercase;
       font-size: 1.2em;
 
       &:first-child {
         margin-left: 0;
+
+        a {
+          padding-top: 18px;
+          display: block;
+        }
       }
 
       a {
@@ -124,7 +145,7 @@ nav {
 
     &:hover {
       background-color: white;
-      color: $orange;
+      color: $blue;
     }
   }
 
@@ -170,7 +191,7 @@ nav {
       box-sizing: border-box;
 
       z-index: 3;
-      background-color: $orange;
+      background-color: $blue;
       @include transition(height);
 
       li {
@@ -190,7 +211,7 @@ nav {
       .lets-talk {
         padding: .5em .8em;
         border: 1px solid white;
-        color: $orange;
+        color: $blue;
         background-color: white;
       }
     }
@@ -243,7 +264,7 @@ nav {
   }
 
   .time {
-    color: $orange;
+    color: $blue;
     margin-left: 0.5em;
     text-transform: uppercase;
 
@@ -283,7 +304,7 @@ nav {
     }
 
     a {
-      border-bottom: 1px solid $orange;
+      border-bottom: 1px solid $blue;
       padding-bottom: 2px;
     }
 
@@ -314,10 +335,10 @@ nav {
       }
 
       &:hover {
-        border: 1px solid $orange;
+        border: 1px solid $blue;
 
         svg {
-          fill: $orange;
+          fill: $blue;
         }
       }
     }
@@ -391,7 +412,7 @@ nav {
   }
 
   .twitter {
-    padding-top: 3px;
+    margin-top: 3px;
   }
 
   a {
@@ -403,14 +424,14 @@ nav {
 
     &:hover {
       svg {
-        fill: $orange;
+        fill: $blue;
       }
     }
   }
 }
 
 footer {
-  background-color: black;
+  background-color: $blue-light;
   min-height: 5em;
 
   .container {
@@ -434,7 +455,7 @@ footer {
   }
 
   p {
-    @include font-family($alternate-font);
+    @include font-family($base-font);
     display: inline-block;
 
     color: white;
@@ -445,7 +466,6 @@ footer {
   }
 
   .built-with {
-    margin-top: 2em;
 
     p {
       display: block;
@@ -457,11 +477,11 @@ footer {
     }
 
     a {
-      color: $orange;
+      color: $yellow;
       text-decoration: none;
 
       &:hover {
-        color: $orange;
+        color: $yellow;
       }
     }
   }
@@ -516,7 +536,7 @@ footer {
     width: 40%;
     margin: 4em auto;
     border-top: 0;
-    border-bottom: 1px solid $orange;
+    border-bottom: 1px solid $blue;
   }
 
   table {
@@ -541,7 +561,7 @@ footer {
     }
 
     h3 {
-      color: $orange;
+      color: $blue;
       font-weight: 300;
       font-size: 1.3em;
       line-height: 1.8em;

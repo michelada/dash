@@ -7,17 +7,17 @@
     border-bottom: 1px solid $gray;
 
     a {
-      color: $orange;
+      color: $blue;
 
       &:hover {
-        color: $orange;
+        color: $blue;
       }
     }
   }
 
   h2 {
     margin-top: 160px;
-    color: $orange;
+    color: $blue;
   }
 
   h3 {
@@ -30,12 +30,12 @@
     border: 1px solid white;
     padding-left: 1em;
     color: white;
-    background-color: $orange;
+    background-color: $blue;
     transition: all .5s ease;
 
     &:hover {
       background-color: white;
-      border: 1px solid $orange;
+      border: 1px solid $blue;
     }
   }
 
@@ -48,7 +48,7 @@
     width: 100%;
 
     .permalink {
-      color: $orange;
+      color: $blue;
       margin-top: 0.5em;
       margin: 0
     }
