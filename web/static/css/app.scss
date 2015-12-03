@@ -349,9 +349,8 @@ nav {
   margin-bottom: 60px;
 
   h1 {
-    margin-bottom: 0;
-
-    line-height: 2em;
+    margin-bottom: 0.5em;
+    line-height: 1.3em;
     font-size: 3.5em;
 
     @include mq-mobile {
