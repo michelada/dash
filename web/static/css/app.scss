@@ -66,6 +66,10 @@ nav {
     &:hover {
       background-color: lighten($yellow, 10%);
     }
+
+    @include mq-mobile {
+      margin: 0 auto;
+    }
   }
 
   .menu-toggle {
@@ -122,6 +126,10 @@ nav {
         a {
           padding-top: 18px;
           display: block;
+
+          @include mq-mobile {
+            margin-top: 1em;
+          }
         }
       }
 
