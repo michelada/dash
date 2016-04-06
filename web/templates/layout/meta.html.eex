@@ -19,4 +19,4 @@
 <meta name="twitter:site" content="@micheladaio">
 <link rel="alternate" type="application/atom+xml" title="feed" href="<%= atom_url(@conn, :index) %>" />
 
-<title>Michelada.io :: <%= page_title(@conn, assigns) %></title>
+<title>michelada.io :: <%= page_title(@conn, assigns) %></title>
