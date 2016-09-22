@@ -25,7 +25,7 @@
   <body class='<%= add_admin_css_class(@conn) %>'>
     <%= render_existing view_module(@conn), "menu.html", assigns %>
 
-    <%= @inner %>
+    <%= render @view_module, @view_template, assigns %>
 
     <footer>
       <div class='container'>

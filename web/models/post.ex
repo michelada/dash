@@ -19,19 +19,18 @@ defmodule Dash.Post do
   @required_fields ~w(title)
   @optional_fields ~w(body permalink tags summary published published_at user_id)
 
-  after_load :flat_tags
-
   @doc """
   Creates a changeset based on the `model` and `params`.
 
   If no params are provided, an invalid changeset is returned
   with no validation performed.
   """
-  def changeset(model, params \\ :empty) do
+  def changeset(model, params \\ %{}) do
     model
-    |> cast(params, @required_fields, @optional_fields)
+    |> cast(params, @required_fields ++ @optional_fields)
     |> inflate_tags
     |> update_published
+    #|> validate_required(@required_fields)
   end
 
   def update_published(changeset) do
