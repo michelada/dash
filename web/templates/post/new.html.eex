@@ -1,7 +1,0 @@
-<div class='container'>
-  <h2>New post</h2>
-
-  <%= render "form.html", changeset: @changeset,
-  action: post_path(@conn, :create) %>
-
-</div>
