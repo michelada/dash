@@ -1,36 +1,17 @@
-<div class="jumbotron">
-  <h2><%= gettext "Welcome to %{name}", name: "Phoenix!" %></h2>
-  <p class="lead">A productive web framework that<br />does not compromise speed and maintainability.</p>
-</div>
+<section class='posts container'>
+  <article id='<%= "post_#{@first.id}" %>' class='content post'>
+    <h2><a href='<%= page_path(@conn, :show, @first.permalink) %>'><%= @first.title %></a></h2>
+    <span class='author'><%= "By #{author_name(@first.user)}" %></span>
+    <span class='time'><%= human_date(@first.published_at) %></span>
+    <p><%= markdown_to_html(@first.body) %></p>
+  </article>
 
-<div class="row marketing">
-  <div class="col-lg-6">
-    <h4>Resources</h4>
-    <ul>
-      <li>
-        <a href="http://phoenixframework.org/docs/overview">Guides</a>
-      </li>
-      <li>
-        <a href="https://hexdocs.pm/phoenix">Docs</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
-      </li>
-    </ul>
-  </div>
-
-  <div class="col-lg-6">
-    <h4>Help</h4>
-    <ul>
-      <li>
-        <a href="http://groups.google.com/group/phoenix-talk">Mailing list</a>
-      </li>
-      <li>
-        <a href="http://webchat.freenode.net/?channels=elixir-lang">#elixir-lang on freenode IRC</a>
-      </li>
-      <li>
-        <a href="https://twitter.com/elixirphoenix">@elixirphoenix</a>
-      </li>
-    </ul>
-  </div>
-</div>
+  <%= for post <- @posts do %>
+    <article id='<%= "post_#{post.id}" %>' class='content post'>
+      <h2><a href='<%= page_path(@conn, :show, post.permalink) %>'><%= post.title %></a></h2>
+      <span class='author'><%= "By #{author_name(post.user)}" %></span>
+      <span class='time'><%= human_date(post.published_at) %></span>
+      <p><%= post.summary %></p>
+    </article>
+  <% end %>
+</section>

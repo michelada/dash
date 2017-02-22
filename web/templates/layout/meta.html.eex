@@ -1,0 +1,22 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="<%= page_description(@conn, assigns) %>">
+<meta name="keywords" content="<%= gettext("design, develop, startup, code, ruby, rails, node, javascript, elixir, angularjs, reactjs, ios, android, app, legacy, maintenance, upgrade") %>">
+<meta name="author" content="Michelada.io">
+
+<meta property="og:title" content="<%= page_title(@conn, assigns) %>">
+<meta property="og:type" content="article">
+<meta property="og:image" content="<%= static_url(@conn, "/images/main-logo.png") %>">
+<meta property="og:description" content="<%= page_description(@conn, assigns) %>">
+<meta property="og:url" content="<%= current_page_url(@conn, assigns) %>">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:url" content="<%= current_page_url(@conn, assigns) %>">
+<meta name="twitter:title" content="<%= page_title(@conn, assigns) %>">
+<meta name="twitter:description" content="<%= page_description(@conn, assigns) %>">
+<meta name="twitter:image" content="<%= static_url(@conn, "/images/main-logo.png") %>">
+<meta name="twitter:site" content="@micheladaio">
+<link rel="alternate" type="application/atom+xml" title="feed" href="<%= atom_url(@conn, :index) %>" />
+
+<title>michelada.io :: <%= page_title(@conn, assigns) %></title>
