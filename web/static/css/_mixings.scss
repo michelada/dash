@@ -1,0 +1,46 @@
+@mixin mq-tablet($orientation: '') {
+  @include mq(1024px, $orientation) { @content; }
+}
+
+@mixin mq-mobile-plus($orientation: '') {
+  @include mq(736px, $orientation) { @content; }
+}
+
+@mixin mq-mobile($orientation: '') {
+  @include mq(667px, $orientation) { @content; }
+}
+
+@mixin mq($max-width, $orientation: '') {
+  @if $orientation == '' {
+    @media only screen and (max-width: #{$max-width}) { @content; }
+  } @else {
+    @media only screen and (max-width: #{$max-width}) and (orientation: #{$orientation}) { @content; }
+  }
+}
+
+@mixin transition-prop($property: all, $duration: .25s) {
+  -webkit-transition-property: $property;
+  transition-property: $property;
+  -webkit-transition-duration: $duration;
+  transition-duration: $duration;
+}
+
+@mixin font-family($family: $base-font) {
+  font-family: $family;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+}
+
+@mixin transition($property: all, $time: 0.5s) {
+  -webkit-transition: $property $time ease;
+  -moz-transition: $property $time ease;
+  -ms-transition: $property $time ease;
+  transition: $property $time ease;
+}
+
+@mixin delay($time: 0.5s) {
+  -webkit-transition-delay: $time;
+  -moz-transition-delay: $time;
+  -o-transition-delay: $time;
+  transition-delay: $time;
+}

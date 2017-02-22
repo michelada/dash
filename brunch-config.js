@@ -2,37 +2,44 @@ exports.config = {
   // See http://brunch.io/#documentation for docs.
   files: {
     javascripts: {
-      joinTo: "js/app.js"
+      joinTo: 'js/app.js'
 
       // To use a separate vendor.js bundle, specify two files path
-      // http://brunch.io/docs/config#-files-
+      // https://github.com/brunch/brunch/blob/stable/docs/config.md#files
       // joinTo: {
-      //  "js/app.js": /^(web\/static\/js)/,
-      //  "js/vendor.js": /^(web\/static\/vendor)|(deps)/
+      //  'js/app.js': /^(web\/static\/js)/,
+      //  'js/vendor.js': /^(web\/static\/vendor)|(deps)/
       // }
       //
       // To change the order of concatenation of files, explicitly mention here
+      // https://github.com/brunch/brunch/tree/master/docs#concatenation
       // order: {
       //   before: [
-      //     "web/static/vendor/js/jquery-2.1.1.js",
-      //     "web/static/vendor/js/bootstrap.min.js"
+      //     'web/static/vendor/js/jquery-2.1.1.js',
+      //     'web/static/vendor/js/bootstrap.min.js'
       //   ]
       // }
     },
     stylesheets: {
-      joinTo: "css/app.css",
       order: {
-        after: ["web/static/css/app.css"] // concat app.css last
+        before: [
+          'web/static/vendor/css/pure-min.css',
+          'web/static/vendor/css/grids-responsive-min.css'
+        ]
+      },
+      joinTo: {
+        'css/app.css': /^(web\/static\/css\/app)|(web\/static\/vendor\/css)/,
+        'css/admin.css': /^web\/static\/css\/admin/
       }
     },
     templates: {
-      joinTo: "js/app.js"
+      joinTo: 'js/app.js'
     }
   },
 
   conventions: {
     // This option sets where we should place non-css and non-js assets in.
-    // By default, we set this to "/web/static/assets". Files in this directory
+    // By default, we set this to '/web/static/assets'. Files in this directory
     // will be copied to `paths.public`, which is "priv/static" by default.
     assets: /^(web\/static\/assets)/
   },
@@ -40,10 +47,9 @@ exports.config = {
   // Phoenix paths configuration
   paths: {
     // Dependencies and current project directories to watch
-    watched: [
-      "web/static",
-      "test/static"
-    ],
+    watched: ["deps/phoenix/web/static",
+              "deps/phoenix_html/web/static",
+              "web/static", "test/static"],
 
     // Where to compile files to
     public: "priv/static"
@@ -59,7 +65,7 @@ exports.config = {
 
   modules: {
     autoRequire: {
-      "js/app.js": ["web/static/js/app"]
+      'js/app.js': ['web/static/js/app']
     }
   },
 

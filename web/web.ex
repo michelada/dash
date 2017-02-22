@@ -50,7 +50,7 @@ defmodule Dash.Web do
       use Phoenix.HTML
 
       import Dash.Router.Helpers
-      import Dash.ErrorHelpers
+      # import Dash.ErrorHelpers
       import Dash.Gettext
     end
   end

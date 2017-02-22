@@ -26,7 +26,7 @@ config :dash, Dash.Endpoint,
     ]
   ]
 
-# Do not include metadata nor timestamps in development logs
+# Do not include metadata nor timestamps() in development logs
 config :logger, :console, format: "[$level] $message\n"
 
 # Set a higher stacktrace during development. Avoid configuring such
@@ -36,8 +36,6 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :dash, Dash.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
   database: "dash_dev",
   hostname: "localhost",
   pool_size: 10

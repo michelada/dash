@@ -1,0 +1,28 @@
+<header>
+  <nav>
+    <div class='michelada'>
+      <a href="http://blog.michelada.io">
+        <span>
+          <svg class='logo'>
+            <use xlink:href="<%= static_url(@conn, "/images/sprites.svg#michelada-logo") %>" />
+          </svg>
+          <svg class='text'>
+            <use xlink:href="<%= static_url(@conn, "/images/sprites.svg#michelada-text") %>" />
+          </svg>
+        </span>
+      </a>
+    </div>
+    <a href='#' class='menu-toggle'>
+      <s class='bar'></s>
+      <s class='bar'></s>
+    </a>
+    <ul class='home-menu'>
+      <li><a href="http://michelada.io">About Us</a></li>
+      <li>
+          <a href="mailto:info@michelada.io?subject=Hi, I want to talk about my project">
+            <div class="contact">Contact Us</div>
+          </a>
+      </li>
+    </ul>
+  </nav>
+</header>

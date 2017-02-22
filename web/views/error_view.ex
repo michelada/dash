@@ -6,7 +6,7 @@ defmodule Dash.ErrorView do
   end
 
   def render("500.html", _assigns) do
-    "Internal server error"
+    "Server internal error"
   end
 
   # In case no render clause matches or no

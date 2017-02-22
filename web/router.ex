@@ -13,10 +13,24 @@ defmodule Dash.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :xml do
+    plug :accepts, ["xml"]
+  end
+
+  scope "/", Dash do
+    pipe_through :xml
+
+    get "/atom.xml", AtomController, :index
+    get "/sitemap.xml", SitemapController, :index
+  end
+
   scope "/", Dash do
     pipe_through :browser # Use the default browser stack
 
+    resources "/#{Application.get_env(:dash, :admin_path)}", PostController
     get "/", PageController, :index
+    get "/:permalink", PageController, :show
+
   end
 
   # Other scopes may use custom stacks.
