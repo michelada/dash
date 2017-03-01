@@ -19,8 +19,6 @@ defmodule Dash.Post do
   @required_fields ~w(title)
   @optional_fields ~w(body permalink tags summary published published_at user_id)
 
-  # after_load :flat_tags
-
   @doc """
   Creates a changeset based on the `model` and `params`.
 
