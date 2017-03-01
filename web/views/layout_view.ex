@@ -22,7 +22,9 @@ defmodule Dash.LayoutView do
   def current_page_url(conn, assigns) do
     path = case assigns[:post] do
       nil -> "/"
-      _ -> "/" <> assigns[:post].permalink
+      _ ->
+        permalink = assigns[:post].permalink || ""
+        "/" <> permalink
     end
 
     static_url(conn, path)

@@ -12,8 +12,6 @@ config :logger, level: :warn
 # Configure your database
 config :dash, Dash.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
   database: "dash_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
