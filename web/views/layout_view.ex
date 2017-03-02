@@ -7,14 +7,14 @@ defmodule Dash.LayoutView do
 
   def page_title(_conn, assigns) do
     case assigns[:post] do
-      nil -> I18n.t!("en", "seo.title")
+      nil -> gettext("We plan, code and launch awesome web and mobile products.")
       _ -> assigns[:post].title
     end
   end
 
   def page_description(_conn, assigns) do
     case assigns[:post] do
-      nil -> I18n.t!("en", "seo.description")
+      nil -> gettext("We work with startups and established companies implementing great ideas with simplicity and code quality")
       _ -> assigns[:post].summary
     end
   end
@@ -22,7 +22,9 @@ defmodule Dash.LayoutView do
   def current_page_url(conn, assigns) do
     path = case assigns[:post] do
       nil -> "/"
-      _ -> "/" <> assigns[:post].permalink
+      _ ->
+        permalink = assigns[:post].permalink || ""
+        "/" <> permalink
     end
 
     static_url(conn, path)

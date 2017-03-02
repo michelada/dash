@@ -5,12 +5,15 @@
 # is restricted to this project.
 use Mix.Config
 
+# General application configuration
+config :dash,
+  ecto_repos: [Dash.Repo]
+
 # Configures the endpoint
 config :dash, Dash.Endpoint,
   url: [host: "localhost"],
-  root: Path.dirname(__DIR__),
-  secret_key_base: "ibP1suHtg19ov4AlP2/ENrEYZxooymlOq3vPUc98wJi4kZKX2TKMlOrdv8THDVGf",
-  render_errors: [accepts: ~w(html json)],
+  secret_key_base: "vdg039YkEHe0Hsj6pwY2rlTGYDUh2d5TcLftkgVzfJBL3GKLD5FfXQ2vJD8EuweX",
+  render_errors: [view: Dash.ErrorView, accepts: ~w(html json)],
   pubsub: [name: Dash.PubSub,
            adapter: Phoenix.PubSub.PG2]
 

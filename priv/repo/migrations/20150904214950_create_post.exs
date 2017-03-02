@@ -8,7 +8,7 @@ defmodule Dash.Repo.Migrations.CreatePost do
       add :permalink, :string
       add :tags, {:array, :string}
 
-      timestamps
+      timestamps()
     end
 
   end

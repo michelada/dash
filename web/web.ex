@@ -18,7 +18,11 @@ defmodule Dash.Web do
 
   def model do
     quote do
-      use Ecto.Model
+      use Ecto.Schema
+
+      import Ecto
+      import Ecto.Changeset
+      import Ecto.Query
     end
   end
 
@@ -27,10 +31,11 @@ defmodule Dash.Web do
       use Phoenix.Controller
 
       alias Dash.Repo
-      import Ecto.Model
-      import Ecto.Query, only: [from: 1, from: 2]
+      import Ecto
+      import Ecto.Query
 
       import Dash.Router.Helpers
+      import Dash.Gettext
     end
   end
 
@@ -45,6 +50,8 @@ defmodule Dash.Web do
       use Phoenix.HTML
 
       import Dash.Router.Helpers
+      import Dash.ErrorHelpers
+      import Dash.Gettext
     end
   end
 
@@ -59,9 +66,9 @@ defmodule Dash.Web do
       use Phoenix.Channel
 
       alias Dash.Repo
-      import Ecto.Model
-      import Ecto.Query, only: [from: 1, from: 2]
-
+      import Ecto
+      import Ecto.Query
+      import Dash.Gettext
     end
   end
 

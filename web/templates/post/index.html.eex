@@ -11,6 +11,7 @@
               <span><%= published(post) %></span>
             </h3>
             <p class='permalink'><%= page_url(@conn, :show, post.permalink) %></p>
+            <%- Dash.Post.flat_tags(post) %>
             <p class='tags'><%= post.tags_text %></p>
             <p><%= post.summary %></p>
             <div class='actions'>

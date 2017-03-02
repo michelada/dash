@@ -3,7 +3,7 @@ defmodule Dash.PostTest do
 
   alias Dash.Post
 
-  @valid_attrs %{body: "some content", permalink: "some content", tags: "some content", title: "some content"}
+  @valid_attrs %{body: "some content", permalink: "some content", tags: ["some", "content"], title: "some content"}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do

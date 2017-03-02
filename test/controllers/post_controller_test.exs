@@ -6,13 +6,13 @@ defmodule Dash.PostControllerTest do
   @invalid_attrs %{}
 
   setup do
-    conn = conn()
+    conn = build_conn()
     {:ok, conn: conn}
   end
 
   test "lists all entries on index", %{conn: conn} do
     conn = get conn, post_path(conn, :index)
-    assert html_response(conn, 200) =~ "Listing posts"
+    assert html_response(conn, 200) =~ "Posts"
   end
 
   test "renders form for new resources", %{conn: conn} do
@@ -32,9 +32,12 @@ defmodule Dash.PostControllerTest do
   end
 
   test "shows chosen resource", %{conn: conn} do
-    post = Repo.insert! %Post{}
+    post_changeset = Post.changeset(
+      %Post{}, %{title: "Foo"}
+    )
+    post = Repo.insert! post_changeset
     conn = get conn, post_path(conn, :show, post)
-    assert html_response(conn, 200) =~ "Show post"
+    assert html_response(conn, 200) =~ "Foo"
   end
 
   test "renders page not found when id is nonexistent", %{conn: conn} do

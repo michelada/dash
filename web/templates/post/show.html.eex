@@ -3,12 +3,16 @@
   <span class='author'><%= "By #{author_name(@post.user)}" %></span>
   <span class='time'><%= human_date(@post.published_at) %></span>
   <p class='tags'>
-  <%= for tag <- @post.tags do %>
-    <span class='tag'><%= tag %></span>
+  <% if @post.tags do %>
+    <%= for tag <- @post.tags do %>
+      <span class='tag'><%= tag %></span>
+    <% end %>
   <% end %>
   </p>
   <div class='content'>
-    <%= markdown_to_html(@post.body) %>
+    <% if @post.body do %>
+      <%= markdown_to_html(@post.body) %>
+    <% end %>
     </a>
   </div>
 </article>

@@ -13,13 +13,11 @@ defmodule Dash.Post do
 
     belongs_to :user, Dash.User
 
-    timestamps
+    timestamps()
   end
 
   @required_fields ~w(title)
   @optional_fields ~w(body permalink tags summary published published_at user_id)
-
-  after_load :flat_tags
 
   @doc """
   Creates a changeset based on the `model` and `params`.
@@ -27,15 +25,16 @@ defmodule Dash.Post do
   If no params are provided, an invalid changeset is returned
   with no validation performed.
   """
-  def changeset(model, params \\ :empty) do
-    model
-    |> cast(params, @required_fields, @optional_fields)
+  def changeset(post, params \\ %{}) do
+    post
+    |> cast(params, [:title, :body, :permalink, :tags, :summary, :published, :published_at, :user_id])
+    |> validate_required([:title])
     |> inflate_tags
     |> update_published
   end
 
   def update_published(changeset) do
-    case {changeset.model.published, changeset.params["published"]} do
+    case {changeset.changes[:published], changeset.params["published"]} do
       {false, true} -> put_published_at(changeset)
       _ -> changeset
     end
