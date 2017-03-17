@@ -42,7 +42,7 @@ defmodule Dash.Post do
 
   def put_published_at(changeset) do
     change(changeset,
-      %{published_at: Ecto.DateTime.local, published: true})
+      %{published_at: Ecto.DateTime.utc, published: true})
   end
 
   def inflate_tags(changeset) do
