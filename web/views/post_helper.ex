@@ -4,7 +4,8 @@ defmodule Dash.PostHelper do
   alias Earmark.Options
 
   def markdown_to_html(content) do
-    Earmark.as_html(content, %Options{gfm: false}) |> raw
+    {_, html, _} = Earmark.as_html(content, %Options{gfm: false})
+    raw(html)
   end
 
   def human_date(date) when is_nil(date), do: ""
