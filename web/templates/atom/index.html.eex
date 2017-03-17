@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Michelada.io Blog</title>
+  <title>michelada.io Blog</title>
   <link href="<%= page_url(@conn, :index) %>"/>
   <updated><%= utc_date(List.last(@posts).published_at) %></updated>
   <author>
-    <name>Michelada.io</name>
+    <name>michelada.io</name>
   </author>
-  <rights>© 2015 Michelada.io</rights>
+  <rights>© 2017 michelada.io</rights>
   <subtitle><%= gettext("We work with startups and established companies implementing great ideas with simplicity and code quality") %></subtitle>
   <logo><%= static_url(@conn, "/images/main-logo.png") %></logo>
 
@@ -14,6 +14,7 @@
     <entry>
       <title><%= post.title %></title>
       <link rel="alternate" href="<%= page_url(@conn, :show, post.permalink) %>"/>
+      <id><%= page_url(@conn, :show, post.permalink) %></id>
       <updated><%= utc_date(post.updated_at) %></updated>
       <published><%= utc_date(post.published_at) %></published>
       <summary><%= post.summary %></summary>
