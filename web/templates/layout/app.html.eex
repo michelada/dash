@@ -34,7 +34,7 @@
             <svg class='marker'>
               <use xlink:href="<%= static_url(@conn, "/images/sprites.svg#map-marker") %>" />
             </svg>
-            <p><b>Michelada.io</b><br/>
+            <p><b>michelada.io</b><br/>
             (415) 666 2698<br/>
             info@michelada.io</p>
           </div>

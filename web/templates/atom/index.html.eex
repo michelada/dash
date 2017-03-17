@@ -7,7 +7,7 @@
     <name>michelada.io</name>
   </author>
   <rights>© 2017 michelada.io</rights>
-  <subtitle><%= gettext("We work with startups and established companies implementing great ideas with simplicity and code quality") %></subtitle>
+  <subtitle>We work with startups and established companies implementing great ideas with simplicity and code quality"</subtitle>
   <logo><%= static_url(@conn, "/images/main-logo.png") %></logo>
 
   <%= for post <- @posts do %>
