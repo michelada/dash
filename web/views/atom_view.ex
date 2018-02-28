@@ -7,7 +7,7 @@ defmodule Dash.AtomView do
   end
 
   def author_name(user) when user == nil do
-    "Michelada.io"
+    "michelada.io"
   end
 
   def author_name(user) do

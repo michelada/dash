@@ -4,7 +4,7 @@ defmodule Dash.ConnCase do
   tests that require setting up a connection.
 
   Such tests rely on `Phoenix.ConnTest` and also
-  imports other functionality to make it easier
+  import other functionality to make it easier
   to build and query models.
 
   Finally, if the test case interacts with the database,
@@ -21,8 +21,9 @@ defmodule Dash.ConnCase do
       use Phoenix.ConnTest
 
       alias Dash.Repo
-      import Ecto.Model
-      import Ecto.Query, only: [from: 2]
+      import Ecto
+      import Ecto.Changeset
+      import Ecto.Query
 
       import Dash.Router.Helpers
 
@@ -32,10 +33,12 @@ defmodule Dash.ConnCase do
   end
 
   setup tags do
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Dash.Repo)
+
     unless tags[:async] do
-      Ecto.Adapters.SQL.restart_test_transaction(Dash.Repo, [])
+      Ecto.Adapters.SQL.Sandbox.mode(Dash.Repo, {:shared, self()})
     end
 
-    :ok
+    {:ok, conn: Phoenix.ConnTest.build_conn()}
   end
 end

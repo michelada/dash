@@ -3,7 +3,7 @@ defmodule Dash.Repo.Migrations.AddPublishedAtAndSummaryToPosts do
 
   def change do
     alter table(:posts) do
-      add :published_at, :datetime
+      add :published_at, :utc_datetime
       add :summary, :text
     end
   end

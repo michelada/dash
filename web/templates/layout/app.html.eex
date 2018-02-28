@@ -25,7 +25,7 @@
   <body class='<%= add_admin_css_class(@conn) %>'>
     <%= render_existing view_module(@conn), "menu.html", assigns %>
 
-    <%= @inner %>
+    <%= render @view_module, @view_template, assigns %>
 
     <footer>
       <div class='container'>
@@ -34,7 +34,7 @@
             <svg class='marker'>
               <use xlink:href="<%= static_url(@conn, "/images/sprites.svg#map-marker") %>" />
             </svg>
-            <p><b>Michelada.io</b><br/>
+            <p><b>michelada.io</b><br/>
             (415) 666 2698<br/>
             info@michelada.io</p>
           </div>

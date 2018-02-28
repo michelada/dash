@@ -2,7 +2,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="<%= page_description(@conn, assigns) %>">
-<meta name="keywords" content="<%= I18n.t!("en", "seo.keywords") %>">
+<meta name="keywords" content="<%= gettext("design, develop, startup, code, ruby, rails, node, javascript, elixir, angularjs, reactjs, ios, android, app, legacy, maintenance, upgrade") %>">
 <meta name="author" content="Michelada.io">
 
 <meta property="og:title" content="<%= page_title(@conn, assigns) %>">

@@ -1,17 +1,17 @@
 # config valid only for current version of Capistrano
-lock '3.4.0'
+lock '3.8.0'
 
 set :application   , 'michelada.io-blog'
-set :repo_url      , 'git@github.com:Michelada/dash.git'
+set :repo_url      , 'git@github.com:michelada/dash.git'
 ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
-set :default_env   , { mix_env: "prod", HOST: "blog.michelada.io", PUBLIC_PORT: 80, SCHEME: "http", PORT: 4002, ADMIN_PATH: "yXAv41YW5uyUDvd47tPa", DB_URL: "ecto://dash:dash_manager@localhost/dash_prod" }
+set :default_env   , { mix_env: "prod", HOST: "blog.michelada.io", PUBLIC_PORT: 443, SCHEME: "https", PORT: 4002, ADMIN_PATH: ENV["ADMIN_PATH"], DB_URL: ENV["DB_URL"] }
 set :deploy_to     , '/home/deploy/www/dash-blog'
 set :log_level     , :debug
 set :keep_releases , 2
 
 set :linked_files, fetch(:linked_files, []).push('config/prod.secret.exs')
 set :linked_dirs, fetch(:linked_dirs, []).
-  push('deps', 'node_modules', 'rel', '_build', 'priv/static/css', 'priv/static/js')
+  push('deps', 'node_modules', '_build', 'priv/static/css', 'priv/static/js')
 
 
 task :dependencies do
@@ -38,7 +38,7 @@ end
 task :build do
   on roles(:web) do |host|
     within(current_path) do
-      execute(:mix, "release")
+      execute(:mix, "release --env=prod")
     end
   end
 end
@@ -70,7 +70,7 @@ end
 
 task :start do
   on roles(:web) do |host|
-    within("#{current_path}/rel/dash/bin") do
+    within("#{current_path}/_build/prod/rel/dash/bin") do
       execute("./dash", "start")
     end
   end
@@ -78,7 +78,7 @@ end
 
 task :stop do
   on roles(:web) do |host|
-    within("#{current_path}/rel/dash/bin") do
+    within("#{current_path}/_build/prod/rel/dash/bin") do
       execute("./dash", "stop")
     end
   end

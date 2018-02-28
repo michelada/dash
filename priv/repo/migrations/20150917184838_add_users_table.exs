@@ -10,7 +10,7 @@ defmodule Dash.Repo.Migrations.AddUsersTable do
       add :nickname, :string
       add :social, :hstore
 
-      timestamps
+      timestamps()
     end
   end
 end

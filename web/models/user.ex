@@ -9,7 +9,7 @@ defmodule Dash.User do
 
     has_many :posts, Dash.Post
 
-    timestamps
+    timestamps()
   end
 
   @required_fields ~w(name nickname)

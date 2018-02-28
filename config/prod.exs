@@ -14,7 +14,11 @@ use Mix.Config
 config :dash, Dash.Endpoint,
   http: [port: System.get_env("PORT")],
   url: [scheme: System.get_env("SCHEME"), host: System.get_env("HOST"), port: System.get_env("PUBLIC_PORT")],
-  cache_static_manifest: "priv/static/manifest.json"
+  static_url: [scheme: System.get_env("SCHEME"), host: System.get_env("HOST"), port: System.get_env("PUBLIC_PORT")],
+  cache_static_manifest: "priv/static/manifest.json",
+  server: true,
+  root: ".",
+  version: Mix.Project.config[:version]
 
 # Do not print debug messages in production
 config :logger, level: :info
@@ -48,7 +52,7 @@ config :logger, level: :info
 # If you are doing OTP releases, you need to instruct Phoenix
 # to start the server for all endpoints:
 #
-config :phoenix, :serve_endpoints, true
+#     config :phoenix, :serve_endpoints, true
 #
 # Alternatively, you can configure exactly which server to
 # start per endpoint:
@@ -56,7 +60,10 @@ config :phoenix, :serve_endpoints, true
 #     config :dash, Dash.Endpoint, server: true
 #
 
-# Configure your database
+# Finally import the config/prod.secret.exs
+# which should be versioned separately.
+config :phoenix, :serve_endpoints, true
+
 config :dash, Dash.Repo,
   adapter: Ecto.Adapters.Postgres,
   url: System.get_env("DB_URL"),
@@ -65,6 +72,4 @@ config :dash, Dash.Repo,
 config :dash,
   admin_path: System.get_env("ADMIN_PATH") || 'admin'
 
-# Finally import the config/prod.secret.exs
-# which should be versioned separately.
 import_config "prod.secret.exs"

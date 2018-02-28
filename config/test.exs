@@ -9,13 +9,9 @@ config :dash, Dash.Endpoint,
 # Print only warnings and errors during test
 config :logger, level: :warn
 
-# Set a higher stacktrace during test
-config :phoenix, :stacktrace_depth, 20
-
 # Configure your database
 config :dash, Dash.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
   database: "dash_test",
+  hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
