@@ -14,6 +14,7 @@ use Mix.Config
 config :dash, Dash.Endpoint,
   http: [port: System.get_env("PORT")],
   url: [scheme: System.get_env("SCHEME"), host: System.get_env("HOST"), port: System.get_env("PUBLIC_PORT")],
+  static_url: [scheme: System.get_env("SCHEME"), host: System.get_env("HOST"), port: System.get_env("PUBLIC_PORT")],
   cache_static_manifest: "priv/static/manifest.json",
   server: true,
   root: ".",
