@@ -1,4 +1,4 @@
-defmodule Dash.ConnCase do
+defmodule DashWeb.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
@@ -19,23 +19,45 @@ defmodule Dash.ConnCase do
     quote do
       # Import conveniences for testing with connections
       use Phoenix.ConnTest
-
-      alias Dash.Repo
-      import Ecto.Model
-      import Ecto.Query, only: [from: 2]
-
-      import Dash.Router.Helpers
+      import DashWeb.Router.Helpers
 
       # The default endpoint for testing
-      @endpoint Dash.Endpoint
+      @endpoint DashWeb.Endpoint
+
+      alias Dash.Blog
+      alias Dash.Repo
+      alias Dash.Blog.Post
+
+      @user_attrs %{name: "Sample user", bio: "My bio", nickname: "user", social: %{"twitter" => "https://twitter.com/dash"}}
+      @post_attrs %{body: "My content", permalink: "my-post", title: "My post", tags: ["post", "first"]}
+
+      def fixture(changeset, attrs \\ %{})
+      def fixture(:user, attrs) do
+        {:ok, user} =
+          attrs
+          |> Enum.into(@user_attrs)
+          |> Blog.create_user()
+
+        user
+      end
+
+      def fixture(:post, attrs) do
+        {:ok, post} =
+          attrs
+          |> Enum.into(@post_attrs)
+          |> Enum.into(%{user_id: fixture(:user).id})
+          |> Blog.create_post()
+
+        Repo.get!(Post, post.id) |> Repo.preload(:user)
+      end
     end
   end
 
   setup tags do
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Dash.Repo)
     unless tags[:async] do
-      Ecto.Adapters.SQL.restart_test_transaction(Dash.Repo, [])
+      Ecto.Adapters.SQL.Sandbox.mode(Dash.Repo, {:shared, self()})
     end
-
-    :ok
+    {:ok, conn: Phoenix.ConnTest.build_conn()}
   end
 end

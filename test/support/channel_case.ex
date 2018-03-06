@@ -1,4 +1,4 @@
-defmodule Dash.ChannelCase do
+defmodule DashWeb.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -20,19 +20,19 @@ defmodule Dash.ChannelCase do
       # Import conveniences for testing with channels
       use Phoenix.ChannelTest
 
-      alias Dash.Repo
+      alias DashWeb.Repo
       import Ecto.Model
       import Ecto.Query, only: [from: 2]
 
 
       # The default endpoint for testing
-      @endpoint Dash.Endpoint
+      @endpoint DashWeb.Endpoint
     end
   end
 
   setup tags do
     unless tags[:async] do
-      Ecto.Adapters.SQL.restart_test_transaction(Dash.Repo, [])
+      Ecto.Adapters.SQL.restart_test_transaction(DashWeb.Repo, [])
     end
 
     :ok

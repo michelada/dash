@@ -5,13 +5,17 @@
 # is restricted to this project.
 use Mix.Config
 
+# General application configuration
+config :dash,
+  ecto_repos: [Dash.Repo]
+
 # Configures the endpoint
-config :dash, Dash.Endpoint,
+config :dash, DashWeb.Endpoint,
   url: [host: "localhost"],
   root: Path.dirname(__DIR__),
   secret_key_base: "ibP1suHtg19ov4AlP2/ENrEYZxooymlOq3vPUc98wJi4kZKX2TKMlOrdv8THDVGf",
-  render_errors: [accepts: ~w(html json)],
-  pubsub: [name: Dash.PubSub,
+  render_errors: [view: DashWeb.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: DashWeb.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
