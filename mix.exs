@@ -3,7 +3,7 @@ defmodule Dash.Mixfile do
 
   def project do
     [app: :dash,
-     version: "0.0.6",
+     version: "0.0.7",
      elixir: "~> 1.4",
      elixirc_paths: elixirc_paths(Mix.env),
      compilers: [:phoenix, :gettext] ++ Mix.compilers,
@@ -34,6 +34,7 @@ defmodule Dash.Mixfile do
      {:postgrex, ">= 0.0.0"},
      {:phoenix_html, "~> 2.1"},
      {:earmark, "~>0.1.17"},
+     {:distillery, "~> 1.5"},
      {:timex, "~> 3.1"},
      {:linguist, "~>0.1.5"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
