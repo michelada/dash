@@ -4,10 +4,10 @@
       <a href="http://blog.michelada.io">
         <span>
           <svg class='logo'>
-            <use xlink:href="<%= static_url(@conn, "/images/sprites.svg#michelada-logo") %>" />
+            <use xlink:href="<%= static_url_with_params(@conn, "/images/sprites.svg", "#michelada-logo") %>" />
           </svg>
           <svg class='text'>
-            <use xlink:href="<%= static_url(@conn, "/images/sprites.svg#michelada-text") %>" />
+            <use xlink:href="<%= static_url_with_params(@conn, "/images/sprites.svg", "#michelada-text") %>" />
           </svg>
         </span>
       </a>

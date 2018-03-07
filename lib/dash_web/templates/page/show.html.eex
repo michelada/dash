@@ -11,7 +11,7 @@
     <%= markdown_to_html(@post.body) %>
     <a class='share' href="https://twitter.com/intent/tweet?url=<%= page_url(@conn, :show, @post.permalink) %>&text=<%= @post.title %>" target="_blank">
       <svg>
-        <use xlink:href="<%= static_url(@conn, "/images/sprites.svg#twitter-small") %>" />
+        <use xlink:href="<%= static_url_with_params(@conn, "/images/sprites.svg", "#twitter-small") %>" />
       </svg>
       Tweet
     </a>

@@ -1,6 +1,7 @@
 defmodule DashWeb.PageView do
   use DashWeb, :view
 
+  import DashWeb.UrlHelper
   import DashWeb.PostHelper
 
   def render_author(_conn, author) when author == nil do

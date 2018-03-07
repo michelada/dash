@@ -59,7 +59,7 @@ config :phoenix, :serve_endpoints, true
 # Configure your database
 config :dash, Dash.Repo,
   adapter: Ecto.Adapters.Postgres,
-  url: System.get_env("DB_URL"),
+  url: System.get_env("DATABASE_URL"),
   pool_size: 10
 
 config :dash,

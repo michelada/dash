@@ -14,7 +14,7 @@
           <%= for {service, link} <- @author.social do %>
             <a href="<%= link %>" target='_blank'>
               <svg class="<%= service %>">
-                <use xlink:href="<%= static_url(@conn, "/images/sprites.svg##{service}-small") %>" />
+                <use xlink:href="<%= static_url_with_params(@conn, "/images/sprites.svg", "##{service}-small") %>" />
               </svg>
             </a>
           <% end %>

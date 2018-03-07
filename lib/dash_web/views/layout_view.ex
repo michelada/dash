@@ -1,6 +1,8 @@
 defmodule DashWeb.LayoutView do
   use DashWeb, :view
 
+  import DashWeb.UrlHelper
+
   def render_meta(assigns) do
     render_existing(DashWeb.LayoutView, "meta.html", assigns)
   end
